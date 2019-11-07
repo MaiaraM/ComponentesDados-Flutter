@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -35,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double  _sliderText = 5;
 
   String _escolhaUsuario;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +138,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
 
+            ),
+        FormBuilder(
+          context,
+          controls: [
+            FormBuilderInput.stepper(
+              decoration: InputDecoration(labelText: "Stepper"),
+              attribute: "stepper",
+              value: 10,
+              step: 1,
+            ),
+          ],
+        ),
+            new Switch(value: _value1, onChanged: _onChanged1),
+            new SwitchListTile(
+              value: _value2,
+              onChanged: _onChanged2,
+              title: new Text('Hello World', style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.red)),
             )
           ],
         ),
